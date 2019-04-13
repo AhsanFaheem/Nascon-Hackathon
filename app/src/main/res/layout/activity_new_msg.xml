@@ -34,24 +34,31 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:orientation="horizontal">
-            <Button
+            <android.support.design.button.MaterialButton
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:backgroundTint="@color/colorAccent"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="unselected"/>
-            <Button
+                android:text="unselected"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="5dp"/>
+            <android.support.design.button.MaterialButton
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:backgroundTint="@color/colorPrimary"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="selected"/>
+                android:text="selected"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginLeft="5dp"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

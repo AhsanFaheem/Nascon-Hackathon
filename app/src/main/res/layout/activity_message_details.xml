@@ -9,18 +9,42 @@
     android:padding="10dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Subject"
+        android:text="These are your message details"
         android:textSize="24sp"
-        android:fontFamily="sans-serif-light"
-        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         android:layout_marginTop="20dp"
-        />
+        android:fontFamily="sans-serif-light"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="Receiver"
+            android:textColor="@color/colorPrimary"
+            android:textSize="36sp"
+            android:id="@+id/receiverTextView"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="timestamp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/timestampTextView"
+            />
+    </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="shared on"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-light"
         android:textColor="#000"
         android:textSize="18sp"
@@ -86,7 +110,33 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Sent Message"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#000"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-light"
+        android:text="This is a demo message"
+        android:id="@+id/messageTextView"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+        <android.support.design.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button_Style_Default"
+            android:text="Back"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/backButton"/>
+    </RelativeLayout>
 </LinearLayout>
