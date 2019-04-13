@@ -57,11 +57,10 @@ public class NewMsg extends AppCompatActivity {
                 postOnWall(msg.getText().toString());
 
         }
-
     }
     private void postOnWall(String msg){
         Intent twitterIntent = new Intent(Intent.ACTION_SEND);
-        twitterIntent.putExtra(Intent.EXTRA_TEXT,"Checking");
+        twitterIntent.putExtra(Intent.EXTRA_TEXT,msg);
         twitterIntent.setType("text/plain");
         PackageManager packageManager=getPackageManager();
         List<ResolveInfo> resolveInfoList=packageManager.queryIntentActivities(twitterIntent,PackageManager.MATCH_DEFAULT_ONLY);
@@ -79,15 +78,33 @@ public class NewMsg extends AppCompatActivity {
         for(ResolveInfo resolveInfo:resolveInfoList){
 
             if(postOnApps.get(2)){
+                //twitter
                 if (resolveInfo.activityInfo.name.startsWith("com.twitter.composer")) {
                     twitterIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
                     startActivity(twitterIntent);
                 }
             }
             if(postOnApps.get(0)){
+                //facebook
+            }
+            if(postOnApps.get(1)){
+                //instagram
+                if (resolveInfo.activityInfo.packageName.startsWith("com.instagram.android")) {
+                    twitterIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
+                    startActivity(twitterIntent);
 
+                }
+            }
+            if(postOnApps.get(3)){
+            //whatsapp
+                if (resolveInfo.activityInfo.packageName.startsWith("com.whatsapp")) {
+                    twitterIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
+                    startActivity(twitterIntent);
+
+                }
             }
             if(postOnApps.get(4)){
+                //linked in
                 if (resolveInfo.activityInfo.packageName.startsWith("com.linkedin.android")) {
                     twitterIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
                     startActivity(twitterIntent);
