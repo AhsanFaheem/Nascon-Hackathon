@@ -2,12 +2,14 @@ package com.example.ahsan.manyconnects;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.ColorStateList;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -98,5 +100,12 @@ public class NewMsg extends AppCompatActivity {
                 alertDialog.show();
 
         }
+    }
+    public void checkForMediumClick(View v){
+//        if(v.getBackground().getC == getResources().getColor(R.color.colorPrimary))
+        if(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimary)) != v.getBackgroundTintList())
+            v.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimary)));
+        else
+            v.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorAccent)));
     }
 }
