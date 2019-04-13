@@ -122,6 +122,7 @@
         android:theme="@style/TextLabel">
 
         <AutoCompleteTextView
+            android:id="@+id/msgEntered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="bottom"
@@ -130,10 +131,11 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        style="@style/Button_Style_Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Button_Style_Default"
-        android:text="Send"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:onClick="SendMessage"
+        android:text="Send" />
 
 </LinearLayout>
