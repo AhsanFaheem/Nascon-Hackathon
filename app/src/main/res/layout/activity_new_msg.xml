@@ -5,45 +5,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".NewMsg">
-    <EditText
-        android:layout_width="match_parent"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="To: "
+        android:layout_gravity="center"
+        android:text="Send your Message"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-light"
         />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:text="Facebook"
-        android:layout_height="wrap_content" />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:text="Twitter"
-        android:layout_height="wrap_content" />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:text="Whatsapp"
-        android:layout_height="wrap_content" />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:text="Linked in"
-        android:layout_height="wrap_content" />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:text="Instagram"
-        android:layout_height="wrap_content" />
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Medium"
+            android:textColor="#000"
+            android:fontFamily="sans-serif-light"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="unselected"/>
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="selected"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fbbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fbicon"
+            app:fabCustomSize="60dp"
+            app:rippleColor="@color/colorPrimary"
+            app:elevation="5dp"
+            android:layout_margin="5dp"
+            android:onClick="checkForMediumClick"/>
 
-        android:hint="Enter Message" />
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Send"
-    android:layout_gravity="right"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/instabutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/instagramicon"
+            app:fabCustomSize="60dp"
+            app:rippleColor="@color/colorPrimary"
+            app:elevation="5dp"
+            android:layout_margin="5dp"
+            android:onClick="checkForMediumClick"/>
 
-    />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/twitterbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/twittericon"
+            app:fabCustomSize="60dp"
+            app:rippleColor="@color/colorPrimary"
+            app:elevation="5dp"
+            android:layout_margin="5dp"
+            android:onClick="checkForMediumClick"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/whatsappbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/whatsappicon"
+            app:fabCustomSize="60dp"
+            app:rippleColor="@color/colorPrimary"
+            app:elevation="5dp"
+            android:layout_margin="5dp"
+            android:onClick="checkForMediumClick"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/linkedinbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/linkedinicon"
+            app:fabCustomSize="60dp"
+            app:rippleColor="@color/colorPrimary"
+            app:elevation="5dp"
+            android:layout_margin="5dp"
+            android:onClick="checkForMediumClick"/>
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:hint="Enter Message" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button_Style_Default"
+        android:text="Send"
+        android:layout_marginTop="20dp"/>
+
 </LinearLayout>
