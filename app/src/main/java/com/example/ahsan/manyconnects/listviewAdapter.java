@@ -1,6 +1,7 @@
 package com.example.ahsan.manyconnects;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -35,7 +36,18 @@ class listviewHolder extends RecyclerView.ViewHolder  {
         twitterimage = view.findViewById(R.id.twitterimage);
         whatsappimage = view.findViewById(R.id.whatsappimage);
 
-        itemView.setOnClickListener(listner);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(v.getContext(),MessageDetails.class);
+                i.putExtra("receiver",receiver.getText().toString());
+                i.putExtra("timestamp",timestamp.getText().toString());
+                i.putExtra("message",message.getText().toString());
+
+                itemView.getContext().startActivity(i);
+            }
+        });
     }
 }
 
