@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         recentitems.add(new item("Hamza Khan","13-04-19","paghal log yar apna apna kaam karo jaldi se"));
 
 
-        listviewAdapter rcAdapter = new listviewAdapter(recentitems,getApplicationContext(),R.layout.listview_item,null);
+        listviewAdapter rcAdapter = new listviewAdapter(recentitems, getApplicationContext(), R.layout.listview_item,null);
         recentMessages.setAdapter(rcAdapter);
 
         findViewById(R.id.newMsgButton).setOnClickListener(new View.OnClickListener() {
