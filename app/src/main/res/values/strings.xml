@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ManyConnects</string>
+    <string name="facebook_app_id">171932787065394</string>
+    <string name="fb_login_protocol_scheme">fb171932787065394</string>
 </resources>
