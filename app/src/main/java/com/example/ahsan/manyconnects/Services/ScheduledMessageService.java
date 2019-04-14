@@ -1,4 +1,4 @@
-package com.example.ahsan.manyconnects;
+package com.example.ahsan.manyconnects.Services;
 
 import android.app.Activity;
 import android.app.IntentService;

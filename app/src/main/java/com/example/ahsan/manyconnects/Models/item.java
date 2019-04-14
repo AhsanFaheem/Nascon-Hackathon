@@ -1,18 +1,20 @@
-package com.example.ahsan.manyconnects;
+package com.example.ahsan.manyconnects.Models;
 
 import android.content.Context;
+
+import com.example.ahsan.manyconnects.R;
 
 import java.util.ArrayList;
 
 public class item {
     private String receiver;
     private String timeStamp;
-    private String message;
+    private MessageTemplate message;
     private ArrayList<Integer> icons;
 
     public item() {
         this.receiver = "default receiver";
-        this.message = "default message";
+        message = new MessageTemplate();
         this.timeStamp = "default timestamp";
         this.icons = new ArrayList<Integer>();
         this.icons.add(R.drawable.fbicon);
@@ -22,13 +24,13 @@ public class item {
         this.icons.add(R.drawable.whatsappicon);
     }
 
-    public item(String receiver, String timeStamp, String message) {
+    public item(String receiver, String timeStamp, MessageTemplate message) {
         this.receiver = receiver;
         this.timeStamp = timeStamp;
         this.message = message;
     }
 
-    public item(String receiver, String timeStamp, String message, ArrayList<Integer> icons) {
+    public item(String receiver, String timeStamp, MessageTemplate message, ArrayList<Integer> icons) {
         this.receiver = receiver;
         this.timeStamp = timeStamp;
         this.message = message;
@@ -51,11 +53,11 @@ public class item {
         this.timeStamp = timeStamp;
     }
 
-    public String getMessage() {
+    public MessageTemplate getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(MessageTemplate message) {
         this.message = message;
     }
 

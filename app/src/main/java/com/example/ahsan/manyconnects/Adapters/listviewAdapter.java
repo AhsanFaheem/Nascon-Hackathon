@@ -1,17 +1,18 @@
-package com.example.ahsan.manyconnects;
+package com.example.ahsan.manyconnects.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.ahsan.manyconnects.Activities.MessageDetails;
+import com.example.ahsan.manyconnects.Models.item;
+import com.example.ahsan.manyconnects.R;
 
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ class listviewHolder extends RecyclerView.ViewHolder  {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(v.getContext(),MessageDetails.class);
+                Intent i = new Intent(v.getContext(), MessageDetails.class);
                 i.putExtra("receiver",receiver.getText().toString());
                 i.putExtra("timestamp",timestamp.getText().toString());
                 i.putExtra("message",message.getText().toString());
@@ -77,7 +78,14 @@ public class listviewAdapter extends RecyclerView.Adapter<listviewHolder>{
     public void onBindViewHolder(@NonNull listviewHolder holder, int i) {
         item myItem = itemsList.get(i);
         holder.receiver.setText(myItem.getReceiver());
-        holder.message.setText(myItem.getMessage());
+        String temp;
+        if(!myItem.getMessage().getHeader().contains("") && myItem.getMessage().getHeader() != null)
+            temp = myItem.getMessage().getHeader() + "\n\n" + myItem.getMessage().getBody();
+        else
+            temp = myItem.getMessage().getBody();
+        if (!myItem.getMessage().getFooter().contains("") && myItem.getMessage().getFooter() != null)
+            temp += "\n\n" + myItem.getMessage().getFooter();
+        holder.message.setText(temp);
         holder.timestamp.setText(myItem.getTimeStamp());
 
 //        Bitmap tempBitmap = itemsList2.get(position);

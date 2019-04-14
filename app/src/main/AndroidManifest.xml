@@ -11,29 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".ScheduledMessageService"
+        <service android:name=".Services.ScheduledMessageService"
             android:exported="false" />
         <provider android:authorities="com.facebook.app.FacebookContentProvider171932787065394"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true"/>
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
-        <activity android:name=".MessageDetails"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MessageDetails"></activity>
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewMsg"
+        <activity android:name=".Activities.NewMsg"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.EditTemplate"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation">
         </activity>
     </application>
 

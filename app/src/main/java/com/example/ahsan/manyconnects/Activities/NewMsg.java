@@ -1,4 +1,4 @@
-package com.example.ahsan.manyconnects;
+package com.example.ahsan.manyconnects.Activities;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -27,10 +28,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ahsan.manyconnects.R;
+import com.example.ahsan.manyconnects.Services.ScheduledMessageService;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.login.widget.LoginButton;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
@@ -40,7 +42,6 @@ import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
 
 import org.joda.time.DateTime;
-import org.joda.time.ReadableDateTime;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,16 +49,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.ahsan.manyconnects.Utilities.Constants.PERMISSION_REQUEST_DATA;
 import static org.joda.time.Seconds.secondsBetween;
 
 
 public class NewMsg extends AppCompatActivity {
 
-    private static final int PERMISSION_REQUEST_DATA = 22;
-    ArrayList<Boolean> postOnApps = null;
+    private ArrayList<Boolean> postOnApps = null;
     private CallbackManager callbackManager;
-    EditText msg;
+    private EditText msg;
     public static Context context;
+    private String restoredHeaderText;
+    private String restoredFooterText;
     private ArrayList<String> selectedItems = new ArrayList<>();
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
@@ -111,6 +114,11 @@ public class NewMsg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_msg);
+
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.msg_template), MODE_PRIVATE);
+        restoredHeaderText = prefs.getString(getString(R.string.msg_header), "");
+        restoredFooterText = prefs.getString(getString(R.string.msg_footer), "");
+
         context = this;
         postOnApps = new ArrayList<Boolean>() {
             {
@@ -135,7 +143,8 @@ public class NewMsg extends AppCompatActivity {
             AlertDialog alertDialog = alertDialogBuilder.show();
             alertDialog.show();
         } else {
-            postOnWall(msg.getText().toString());
+            postOnWall(restoredHeaderText + "\n\n" + msg.getText().toString() +
+                    "\n\n" + restoredFooterText);
         }
     }
 
