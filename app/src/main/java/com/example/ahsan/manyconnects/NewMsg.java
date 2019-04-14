@@ -45,9 +45,6 @@ public class NewMsg extends AppCompatActivity {
                     postOnApps.set(4,true);
                     break;
             }
-            if (v.getId() == R.id.fbbutton){
-
-            }
             v.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimary)));
         }
         else {

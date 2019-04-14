@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="10dp"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Your Recent Messages"
         android:textSize="24sp"
+        android:textColor="#fff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-light"
@@ -24,16 +27,30 @@
         android:id="@+id/recentMsgsListView">
 
     </android.support.v7.widget.RecyclerView>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/newMsgButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:foreground="@drawable/whatsappicon"
+        android:foreground="@drawable/message"
         android:foregroundGravity="center"
         app:fabCustomSize="150dp"
+        app:rippleColor="@color/colorPrimary"
+        app:elevation="5dp"
+        />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/edit_template"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/newMsgButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:foreground="@drawable/message"
+        android:foregroundGravity="center"
+        app:fabCustomSize="100dp"
         app:rippleColor="@color/colorPrimary"
         app:elevation="5dp"
         />
