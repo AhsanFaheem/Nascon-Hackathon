@@ -5,10 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Template Editor"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_edit_black_24dp"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/page_header"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+        android:layout_below="@+id/page_header"
         android:layout_height="wrap_content"
         android:theme="@style/TextLabel"
         android:id="@+id/msg_header_wrapper">

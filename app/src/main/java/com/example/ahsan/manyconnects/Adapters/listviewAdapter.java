@@ -45,6 +45,7 @@ class listviewHolder extends RecyclerView.ViewHolder  {
                 i.putExtra("receiver",receiver.getText().toString());
                 i.putExtra("timestamp",timestamp.getText().toString());
                 i.putExtra("message",message.getText().toString());
+                i.putExtra("icons", (String) itemView.getTag());
 
                 itemView.getContext().startActivity(i);
             }
@@ -91,6 +92,7 @@ public class listviewAdapter extends RecyclerView.Adapter<listviewHolder>{
             else if(platform[j].equals("Twitter"))
                 holder.twitterimage.setVisibility(View.VISIBLE);
         }
+        holder.itemView.setTag(myItem.getPlatforms());
         String temp;
         if(!myItem.getMessage().getHeader().equals(""))
             temp = myItem.getMessage().getHeader() + "\n\n" + myItem.getMessage().getBody();

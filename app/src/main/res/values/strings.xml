@@ -5,4 +5,12 @@
     <string name="msg_template">MESSAGE_TEMPLATE</string>
     <string name="msg_header">MSG_HEADER</string>
     <string name="msg_footer">MSG_FOOTER</string>
+    <string name="country_prompt">Choose a social website</string>
+
+    <string-array name="social_webite_array">
+        <item>Facebook</item>
+        <item>Whatsapp</item>
+        <item>Instagram</item>
+        <item>Linkedin</item>
+    </string-array>
 </resources>
