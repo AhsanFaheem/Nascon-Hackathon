@@ -8,7 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 
 import com.example.ahsan.manyconnects.Models.MessageTemplate;
 import com.example.ahsan.manyconnects.R;

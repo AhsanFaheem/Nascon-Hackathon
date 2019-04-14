@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -28,6 +30,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ahsan.manyconnects.Database.ContractClass;
+import com.example.ahsan.manyconnects.Database.DBHelper;
 import com.example.ahsan.manyconnects.R;
 import com.example.ahsan.manyconnects.Services.ScheduledMessageService;
 import com.facebook.CallbackManager;
@@ -44,6 +48,7 @@ import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
 import org.joda.time.DateTime;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -61,6 +66,7 @@ public class NewMsg extends AppCompatActivity {
     public static Context context;
     private String restoredHeaderText;
     private String restoredFooterText;
+    private DBHelper dbHelper;
     private ArrayList<String> selectedItems = new ArrayList<>();
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
@@ -114,7 +120,7 @@ public class NewMsg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_msg);
-
+        dbHelper = new DBHelper(this);
         SharedPreferences prefs = getSharedPreferences(getString(R.string.msg_template), MODE_PRIVATE);
         restoredHeaderText = prefs.getString(getString(R.string.msg_header), "");
         restoredFooterText = prefs.getString(getString(R.string.msg_footer), "");
@@ -143,9 +149,39 @@ public class NewMsg extends AppCompatActivity {
             AlertDialog alertDialog = alertDialogBuilder.show();
             alertDialog.show();
         } else {
+            addingToDB();
             postOnWall(restoredHeaderText + "\n\n" + msg.getText().toString() +
                     "\n\n" + restoredFooterText);
         }
+    }
+
+    private void addingToDB() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(ContractClass.TableEntry.COLUMN_NAME_RECEIVER, "Posted Successfully");
+        String pattern = "dd-MM-yyyy HH:mm:ss";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        values.put(ContractClass.TableEntry.COLUMN_NAME_DATE, simpleDateFormat.format(new Date()));
+        String platforms = "";
+        for (int i = 0; i < selectedItems.size(); i++){
+            if(i == selectedItems.size() - 1)
+                platforms += selectedItems.get(i);
+            else
+                platforms += selectedItems.get(i) + ",";
+        }
+        values.put(ContractClass.TableEntry.COLUMN_NAME_PLATFORM, platforms);
+        values.put(ContractClass.TableEntry.COLUMN_NAME_MESSAGE_HEADER, restoredHeaderText);
+        values.put(ContractClass.TableEntry.COLUMN_NAME_MESSAGE_BODY, msg.getText().toString());
+        values.put(ContractClass.TableEntry.COLUMN_NAME_MESSAGE_FOOTER, restoredFooterText);
+
+// Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(ContractClass.TableEntry.TABLE_NAME, null, values);
+        if(newRowId == -1)
+            Toast.makeText(this, "Error inserting in Database.", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Row: " + String.valueOf(newRowId) + " added to Database", Toast.LENGTH_LONG).show();
     }
 
     public void ScheduleMessage(View view) {

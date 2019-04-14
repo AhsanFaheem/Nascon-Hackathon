@@ -78,12 +78,25 @@ public class listviewAdapter extends RecyclerView.Adapter<listviewHolder>{
     public void onBindViewHolder(@NonNull listviewHolder holder, int i) {
         item myItem = itemsList.get(i);
         holder.receiver.setText(myItem.getReceiver());
+        String platform[] = myItem.getPlatforms().split(",");
+        for(int j = 0; j < platform.length; j++){
+            if(platform[j].equals("Facebook"))
+                holder.fbimage.setVisibility(View.VISIBLE);
+            else if(platform[j].equals("Whatsapp"))
+                holder.whatsappimage.setVisibility(View.VISIBLE);
+            else if(platform[j].equals("Instagram"))
+                holder.instaimage.setVisibility(View.VISIBLE);
+            else if(platform[j].equals("Linkedin"))
+                holder.linkedinimage.setVisibility(View.VISIBLE);
+            else if(platform[j].equals("Twitter"))
+                holder.twitterimage.setVisibility(View.VISIBLE);
+        }
         String temp;
-        if(!myItem.getMessage().getHeader().contains("") && myItem.getMessage().getHeader() != null)
+        if(!myItem.getMessage().getHeader().equals(""))
             temp = myItem.getMessage().getHeader() + "\n\n" + myItem.getMessage().getBody();
         else
             temp = myItem.getMessage().getBody();
-        if (!myItem.getMessage().getFooter().contains("") && myItem.getMessage().getFooter() != null)
+        if (!myItem.getMessage().getFooter().equals(""))
             temp += "\n\n" + myItem.getMessage().getFooter();
         holder.message.setText(temp);
         holder.timestamp.setText(myItem.getTimeStamp());
