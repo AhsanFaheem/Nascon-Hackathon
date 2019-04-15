@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ManyConnects</string>
+    <string name="facebook_app_id">171932787065394</string>
+    <string name="fb_login_protocol_scheme">fb171932787065394</string>
+    <string name="msg_template">MESSAGE_TEMPLATE</string>
+    <string name="msg_header">MSG_HEADER</string>
+    <string name="msg_footer">MSG_FOOTER</string>
+    <string name="country_prompt">Choose a social website</string>
+
+    <string-array name="social_webite_array">
+        <item>Facebook</item>
+        <item>Whatsapp</item>
+        <item>Instagram</item>
+        <item>Linkedin</item>
+        <item>Twitter</item>
+    </string-array>
 </resources>

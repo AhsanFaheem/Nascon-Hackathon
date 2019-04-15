@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MessageDetails"
+    tools:context=".Activities.MessageDetails"
     android:padding="10dp">
 
     <TextView
@@ -63,16 +63,20 @@
             app:fabCustomSize="60dp"
             app:rippleColor="@color/colorPrimary"
             app:elevation="5dp"
+            android:clickable="false"
+            android:visibility="gone"
             android:layout_margin="5dp"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/instabutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@drawable/instagramicon"
             app:fabCustomSize="60dp"
             app:rippleColor="@color/colorPrimary"
             app:elevation="5dp"
+            android:clickable="false"
             android:layout_margin="5dp"/>
 
         <android.support.design.widget.FloatingActionButton
@@ -80,19 +84,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/twittericon"
+            android:visibility="gone"
             app:fabCustomSize="60dp"
             app:rippleColor="@color/colorPrimary"
             app:elevation="5dp"
+            android:clickable="false"
             android:layout_margin="5dp"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/whatsappbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@drawable/whatsappicon"
             app:fabCustomSize="60dp"
             app:rippleColor="@color/colorPrimary"
             app:elevation="5dp"
+            android:clickable="false"
             android:layout_margin="5dp"/>
 
         <android.support.design.widget.FloatingActionButton
@@ -100,9 +108,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/linkedinicon"
+            android:visibility="gone"
             app:fabCustomSize="60dp"
             app:rippleColor="@color/colorPrimary"
             app:elevation="5dp"
+            android:clickable="false"
             android:layout_margin="5dp"
             />
     </LinearLayout>

@@ -35,7 +35,8 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:src="@drawable/fbicon"
-                android:id="@+id/fbimage"/>
+                android:id="@+id/fbimage"
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="30dp"
@@ -43,7 +44,8 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:src="@drawable/instagramicon"
-                android:id="@+id/instaimage"/>
+                android:id="@+id/instaimage"
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="30dp"
@@ -51,7 +53,8 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:src="@drawable/linkedinicon"
-                android:id="@+id/linkedinimage"/>
+                android:id="@+id/linkedinimage"
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="30dp"
@@ -59,7 +62,8 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:src="@drawable/twittericon"
-                android:id="@+id/twitterimage"/>
+                android:id="@+id/twitterimage"
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="30dp"
@@ -67,7 +71,8 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:src="@drawable/whatsappicon"
-                android:id="@+id/whatsappimage"/>
+                android:id="@+id/whatsappimage"
+                android:visibility="gone"/>
         </LinearLayout>
 
     </LinearLayout>
